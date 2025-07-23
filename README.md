@@ -15,7 +15,7 @@ This is the frontend application for the **Job Board Management System**, develo
 - 📝 Applicants can:
   - Browse and apply to job offers
   - View and manage their applications
-- 📢 Companies can:
+- 📢 Recruiters can:
   - Create and manage job postings
   - Review applications received
 - 🛠️ Admin panel to manage users and oversee platform activity
