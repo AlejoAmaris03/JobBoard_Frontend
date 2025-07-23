@@ -1,0 +1,49 @@
+* {
+    color: var(--dark-text);
+}
+
+.table {
+    table {
+        table-layout: auto;
+        background: none;
+
+        button {
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            .edit-btn {
+                color: var(--primary-color);
+            }
+
+            .delete-btn {
+                color: var(--error-color);
+            }
+        }
+    }
+
+    th {
+        background-color: var(--dark-text);
+        font-weight: bold;
+    }
+
+    td {
+        color: var(--dark-text);
+    }
+
+    tr {
+        &:hover {
+            background-color: rgba(172, 172, 172, .1);
+        }
+    }
+
+    mat-paginator {
+        width: 100%;
+        background-color: var(--dark-text);
+    }
+
+    .no-data {
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+    }
+}

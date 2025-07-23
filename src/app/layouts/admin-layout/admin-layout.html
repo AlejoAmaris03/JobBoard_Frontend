@@ -1,0 +1,13 @@
+<div class="admin-layout general-layout">
+    <app-navbar [sidebar]="sidebar" [userLoggedIn]="userLoggeedIn" />
+
+    <mat-sidenav-container class="sidebar">
+        <mat-sidenav mode="over" class="sidebar-options">
+            <app-sidebar [sidebar]="sidebar" [options]="options" [userLoggedIn]="userLoggeedIn" />
+        </mat-sidenav>
+
+        <mat-sidenav-content class="sidebar-content">
+            <router-outlet />
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

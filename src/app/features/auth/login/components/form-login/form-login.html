@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="login-form form" autocomplete="off">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" required formControlName="email" />
+
+        @if((form.controls['email'].touched && form.controls['email'].invalid) || 
+            (form.controls['email'].invalid && formSubmitted)) {
+            <div>
+                @if(form.controls['email'].hasError('required')) { <span class="error-message">Email is required</span> }
+                @if(form.controls['email'].hasError('pattern')) { <span class="error-message">Email is not valid</span> }
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-input">
+            <input id="password" [type]="showPassword ? 'text' : 'password'" maxlength="50" required formControlName="password" />
+            @if(!showPassword) { <i class="fas fa-eye-slash" (click)="showOrHidePassword()"></i> }
+            @if(showPassword) { <i class="fas fa-eye" (click)="showOrHidePassword()"></i> }
+        </div>
+
+        @if((form.controls['password'].touched && form.controls['password'].invalid) ||
+            (form.controls['password'].invalid && formSubmitted)) {
+            <div>
+                <span class="error-message">Password is required</span>
+            </div>
+        }
+
+        <div class="options">
+            <p class="text" routerLink="/register">Are you new?</p>
+            <p class="text" routerLink="/login/forgot-password">Forgot password?</p>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn-primary" id="login-btn">Login</button>
+
+    <app-oauth2-google />
+</form>

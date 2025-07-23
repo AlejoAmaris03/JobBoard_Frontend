@@ -1,0 +1,61 @@
+<div class="manage-jobs">
+    <header class="dashboard-header">
+        <div class="dashboard-header-left">
+            <button class="btn-back" routerLink="/recruiter" matTooltip="Go Home">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1 class="dashboard-title">Manage Job Postings</h1>
+        </div>
+
+        <button class="btn-primary btn-post-jobs" routerLink="/recruiter/post-jobs" matTooltip="Add job">
+            <i class="fas fa-plus"></i>
+            <span>Post New Job</span>
+        </button>
+    </header>
+
+    <section class="search-bar form">
+        <i class="search-icon fa-solid fa-search"></i>
+        <input 
+            type="search" 
+            class="search" 
+            id="search" 
+            autocomplete="off" 
+            placeholder="Search by name, company, location and type"
+            (input)="filterJobs($event)">
+    </section>
+
+    <section class="job-grid">
+        @if(jobPosts.length === 0) {
+            <p>No data found</p>
+        }
+
+        @for(job of jobPosts; track job.id) {
+            <div class="job-card">
+                <div class="job-info">
+                    <h2>{{ job.name }}</h2>
+                    <p><strong>Company:</strong> {{ job.companyName }}</p>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Type:</strong> {{ job.type }}</p>
+                    <p><strong>Salary:</strong> ${{ job.salary.toLocaleString() }}</p>
+                    <p><strong>Posted:</strong> {{ parseDate(job.createdAt.toString()) }}</p>
+                </div>
+                <div class="job-actions">
+                    <button class="btn view" (click)="jobDetails(job)"><i class="fa fa-eye"></i> View</button>
+                    <button class="btn edit" [routerLink]="'/recruiter/post-jobs/' + job.id"><i class="fa fa-edit"></i> Edit</button>
+                    <button class="btn delete" (click)="deleteJob(job.id)"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        }
+    </section>
+
+    <section class="pagination">
+        <div class="no-pages">
+            <span>Page {{ page }} of {{ totalPages }}</span>
+        </div>
+
+        <div class="page-options">
+            <button class="btn-primary preview-btn" (click)="onPreviewPage()">Preview</button>
+            <button class="btn-primary next-btn" (click)="onNextPage()">Next</button>
+        </div>
+    </section>
+</div>

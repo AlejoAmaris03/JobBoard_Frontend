@@ -1,0 +1,132 @@
+* {
+    color: var(--dark-text);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    gap: 2rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.candidates-per-job {
+    width: 500px;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.candidates {
+    width: 800px;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.candidates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.candidates-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.total-applicants {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.job-card {
+    background-color: white;
+    border: 1px solid var(--medium-gray);
+    border-left: 6px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.job-company {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+}
+
+.job-location {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    margin-bottom: 0.8rem;
+}
+
+.applicant-count {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--success-color);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b4b4b4;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #979797;
+}
+
+@media screen and (max-width: 400px) {
+    .jobs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px ,1fr));
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .candidates-per-job {
+        display: none;
+    }
+}

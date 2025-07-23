@@ -1,0 +1,8 @@
+@if(applications.length === 0) {
+    <app-no-applications-message />
+}
+@else { <small><strong>In progress:</strong> {{ applications.length }}</small> }
+
+@for(job of applications; let idx = $index; track job.id) {
+    <app-application-card [job]="job" [applicationNumber]="idx + 1" (onCancelApplication)="handleCancelation()" />
+}

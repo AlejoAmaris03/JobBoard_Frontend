@@ -1,0 +1,16 @@
+<div class="job-info">
+    <h2 class="job-title">{{ job.name }}</h2>
+    <p class="company-name"><i class="fas fa-building"></i> {{ job.companyName }}</p>
+    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
+    <p class="salary"><i class="fas fa-dollar-sign"></i> {{ job.salary.toLocaleString() }}</p>
+</div>
+
+<div class="job-actions">
+    <span 
+        class="job-type" 
+        [className]="job.type === 'Full-time' ? 
+            'job-type full-time' 
+            : job.type === 'Part-time' ? 'job-type part-time'
+            : 'job-type'"
+    >{{ job.type }}</span>
+</div>

@@ -1,0 +1,19 @@
+* {
+    color: var(--dark-text);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--dark-text);
+    border-radius: 6px;
+
+    .search-icon {
+        margin-left: 10px;
+    }
+
+    .search {
+        width: 100%;
+        border: none;
+    }
+}

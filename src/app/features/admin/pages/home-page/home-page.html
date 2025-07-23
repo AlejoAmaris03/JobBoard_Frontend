@@ -1,0 +1,33 @@
+<div class="admin-dashboard">
+    <h2>Admin Dashboard</h2>
+
+    <section class="stats-grid">
+        <div class="card stat">
+            <h3>Total Users</h3>
+            <p>{{ stats.totalUsers }}</p>
+        </div>
+
+        <div class="card stat">
+            <h3>Total Recruiters</h3>
+            <p>{{ stats.totalRecruiters }}</p>
+        </div>
+
+        <div class="card stat">
+            <h3>Total Jobs Posted</h3>
+            <p>{{ stats.totalJobs }}</p>
+        </div>
+
+        <div class="card stat">
+            <h3>Active Applications</h3>
+            <p>{{ stats.totalApplications }}</p>
+        </div>
+    </section>
+
+    <section class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="actions">
+            <button class="btn-primary" routerLink="/admin/users">Manage Users</button>
+            <button class="btn-primary" routerLink="/admin/companies">Manage Companies</button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,81 @@
+<div class="user-form">
+    <h2 class="title">
+        <span>Users</span>
+        <mat-icon matTooltip="Close" mat-dialog-close>close</mat-icon>
+    </h2>
+
+    <mat-dialog-content class="content">
+        <form [formGroup]="form" class="form" autocomplete="off">
+            <div class="form-group">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" maxlength="30" required formControlName="name" />
+
+                    @if((form.controls['name'].touched && form.controls['name'].invalid) || (form.controls['name'].invalid && formSubmitted)) {
+                        <div>
+                            <span class="error-message">Name is required</span>
+                        </div>
+                    }
+                </div>
+
+                <div class="field">
+                    <label for="surname">Surname</label>
+                    <input id="surname" type="text" maxlength="30" required formControlName="surname" />
+
+                    @if((form.controls['surname'].touched && form.controls['surname'].invalid) || (form.controls['surname'].invalid && formSubmitted)) {
+                        <div>
+                            <span class="error-message">Surname is required</span>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" required formControlName="email"/>
+
+                    @if((form.controls['email'].touched && form.controls['email'].invalid) || (form.controls['email'].invalid && formSubmitted)) {
+                        <div>
+                            @if(form.controls['email'].hasError('required')) { <span class="error-message">Email is required</span> }
+                            @if(form.controls['email'].hasError('pattern')) { <span class="error-message">Email is not valid</span> }
+                        </div>
+                    }
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" maxlength="50" formControlName="password"/>
+
+                    @if((form.controls['password'].touched && form.controls['password'].invalid) || (form.controls['password'].invalid && formSubmitted)) {
+                        <div>
+                            <span class="error-message">Password is required</span>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="role">Role</label>
+                <select name="role" id="role" formControlName="role">
+                    <option value="">Select a role</option>
+
+                    @for(role of roles; track role.id) {
+                        <option [ngValue]=role>{{ role.name.split('_')[1] }}</option>
+                    }
+                </select>
+
+                @if((form.controls['role'].touched && form.controls['role'].invalid) || (form.controls['role'].invalid && formSubmitted)) {
+                    <div>
+                        <span class="error-message">Role is required</span>
+                    </div>
+                }
+            </div>
+        </form>
+
+        <mat-dialog-actions class="actions">
+            <button class="btn-primary close-btn" mat-dialog-close>Close</button>
+            <button class="btn-primary" (click)="submitForm()">Submit</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</div>

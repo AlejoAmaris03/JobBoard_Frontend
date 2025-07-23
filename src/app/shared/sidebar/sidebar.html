@@ -1,0 +1,17 @@
+<div class="sidebar">
+    <header>
+        <h3>{{ userLoggedIn.name }} {{ userLoggedIn.surname }}</h3>
+        <small>{{ userLoggedIn.role.split('_')[1] }}</small>
+    </header>
+
+    <hr>
+
+    <ul>
+        @for (item of options; track $index) {
+            <li [routerLink]="item.link" routerLinkActive="active" (click)="sidebar?.close()">
+                <i class="icon" [class]=item.icon></i>
+                <span>{{ item.name }}</span>
+            </li>
+        }
+    </ul>
+</div>

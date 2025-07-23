@@ -1,0 +1,10 @@
+<div class="search-bar form">
+    <i class="search-icon fa-solid fa-search"></i>
+    <input 
+        type="search" 
+        class="search"
+        id="search" 
+        autocomplete="off"
+        [placeholder]=placeholder
+        (input)="onSearchEvent($event)">
+</div>

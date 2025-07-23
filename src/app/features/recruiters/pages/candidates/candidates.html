@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="candidates"> 
+        <header class="candidates-header">
+            <h2>Applications Per Job - Overview</h2>
+
+            <p class="total-applicants">
+                Total Applicants: {{ totalApplications }}
+            </p>
+        </header>
+
+        <div class="jobs-grid">
+            @for(job of jobs; let idx = $index; track job.id) {
+                <div class="job-card" (click)="selectJob(job)">
+                    <h3 class="job-title">{{ job.name }}</h3>
+                    <p class="job-company">Company: {{ job.companyName }}</p>
+                    <p class="job-location">Location: {{ job.location }}</p>
+                    <div class="applicant-count">
+                        {{ applicationsPerJobNumber[job.name] }} applicant{{ applicationsPerJobNumber[job.name] === 1 ? '' : 's' }}
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="candidates-per-job">
+        <app-applicants [jobSelected]="jobSelected" />
+    </div>
+</div>

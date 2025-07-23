@@ -1,0 +1,17 @@
+* {
+    color: var(--dark-text);
+}
+
+.sidebar-options {
+    min-width: 180px;
+    max-width: 270px;
+    padding: 20px;
+    border-radius: 0;
+    background-color: var(--light-gray);
+}
+
+@media screen and (max-width: 270px) {
+    .sidebar-options {
+        width: 100%;
+    }   
+}

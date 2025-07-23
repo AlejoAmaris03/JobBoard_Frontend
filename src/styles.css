@@ -1,1 +1,194 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300&display=swap');
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+:root {
+    /* Primary Colors */
+    --primary-color: #0D6EFD;
+    --secondary-color: #6610F2;
+    --accent-color: #00C49A;
+
+    /* Neutral Colors */
+    --light-gray: #F8F9FA;
+    --medium-gray: #6C757D;
+    --dark-text: #212529;
+
+    /* Status Colors */
+    --error-color: #DC3545;
+    --success-color: #198754;
+}
+
+* {
+    margin: 0;
+    color: var(--light-gray);
+    background: none;
+    border: none;
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+    background-color: var(--light-gray);
+}
+
+body {
+    margin: 0;
+}
+
+.general-layout {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    height: 100%;
+}
+
+.sidebar-content {
+    box-sizing: border-box;
+    padding: 20px 30px;
+    overflow-y: auto;
+    background-color: var(--light-gray);
+}
+
+.form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form label,
+.label {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: var(--medium-gray);
+}
+
+.form input,
+.form select,
+.form textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    color: var(--dark-text);
+}
+
+.image-label {
+    cursor: pointer;
+    color: var(--light-gray);
+    margin: 0;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #dbdbdb;
+
+    &:hover {
+        background-color: rgb(201, 201, 201);
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.form select {
+    cursor: pointer;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--medium-gray);
+    border-radius: 6px;
+
+    input {
+        border: none;
+        width: 100%;
+    }
+
+    i {
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: var(--dark-text);
+        margin-right: 5px;
+    }
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .text {
+        width: fit-content;
+        margin-top: 5px;
+        color: var(--medium-gray);
+        font-size: .85rem;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.btn-primary {
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+        background-color: #0b5ed7;
+    }
+}
+
+.mat-mdc-menu-content {
+    background-color: var(--light-gray);
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(0, 0, 0, .32);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.disabled {
+    background-color: var(--medium-gray);
+    cursor: not-allowed;
+
+    &:hover {
+        background-color: var(--medium-gray);
+    }
+}

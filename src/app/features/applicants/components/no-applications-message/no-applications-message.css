@@ -1,0 +1,51 @@
+* {
+    color: var(--dark-text);
+}
+
+.empty-state-card {
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    color: var(--light-gray);
+    border-radius: 10px;
+    max-width: 450px;
+}
+
+.no-applications-img {
+    width: 300px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.empty-state-card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.empty-state-card p {
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+    margin-bottom: 1.5rem;
+}
+
+.btn-outline {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #007bff;
+    background: transparent;
+    color: #007bff;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+@media screen and (max-width: 640px){
+    .no-applications-img {
+        max-width: 150px;
+    }
+}

@@ -1,0 +1,17 @@
+@if(jobSelected) {
+    <div class="applicants">
+        <header class="applicants-header">
+            <h2>{{ jobSelected.name }}</h2>
+        </header>
+
+        <div class="applications">
+            @for(app of applicants; track app.id) {
+                <app-applicant-card [application]="app" (onChangeStatus)="handleChangeStatus($event)" />
+            }
+        </div>
+        
+    </div>
+}
+@else {
+    <h2 class="no-applicants">Select a job to display applicants</h2>
+}

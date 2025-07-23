@@ -1,0 +1,53 @@
+<div class="job-dashboard">
+    <header class="header">
+        <h1>Explore Job Opportunities</h1>
+        <div class="search-bar form">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search by name, company, location and type" (input)=filterData($event) />
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="job-container">
+            <div class="jobs-length">
+                <strong>{{ totalElements }}</strong> <span>job offerts</span> 
+                @if(filterQuery) { <span> of </span> {{ filterQuery }} }
+            </div>
+
+            <div class="cards">
+                @if (jobs.length === 0) {
+                    <p>No jobs found</p>
+                }
+
+                @for(job of jobs; track job.id) {
+                    <div 
+                        class="job-card" 
+                        [class.job-selected]="job.id === jobSelected.id"
+                        (click)=selecJob(job)
+                    >
+                        <app-job-board-card [job]=job />
+                    </div>
+                }
+            </div>
+
+            <div class="pagination">
+                <div class="no-pages">
+                    <span>Page {{ page }} of {{ totalPages }}</span>
+                </div>
+
+                <div class="page-options">
+                    <button class="btn-primary preview-btn" (click)="onPreviewPage()">Preview</button>
+                    <button class="btn-primary next-btn" (click)="onNextPage()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="job-details">
+            <app-job-details [jobSelected]=jobSelected (onDialogNotOpen)="handleApplying($event)" [updateApplyBtn]="updateApplyBtn" />
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Job Board - All rights reserved.</p>
+    </footer>
+</div>

@@ -1,0 +1,18 @@
+<div class="send-email">
+    <form [formGroup]="form" (ngSubmit)="sendEmail()" class="send-email-form form" autocomplete="off">
+        <h1 class="form-title">Send email</h1>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Your email" required formControlName="email">
+            
+            @if((form.get('email')?.invalid && form.get('email')?.touched) || 
+                (formSubmitted && form.get('email')?.invalid)) {
+                @if(form.get('email')?.hasError('required')) { <div class="error-message">Email is required</div> }
+                @if(form.get('email')?.hasError('pattern')) { <div class="error-message">Email is not valid</div> }
+            }
+        </div>
+
+        <button class="btn-primary">Send</button>   
+    </form>
+</div>

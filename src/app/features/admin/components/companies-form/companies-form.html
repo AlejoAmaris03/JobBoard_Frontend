@@ -1,0 +1,50 @@
+<div class="company-form">
+    <h2 class="title">
+        <span>Companies</span>
+        <mat-icon matTooltip="Close" mat-dialog-close>close</mat-icon>
+    </h2>
+
+    <mat-dialog-content class="content">
+        <form [formGroup]="form" class="form" autocomplete="off">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" maxlength="30" required formControlName="name" />
+
+                @if((form.controls['name'].touched && form.controls['name'].invalid) || (form.controls['name'].invalid && formSubmitted)) {
+                    <div>
+                        <span class="error-message">Name is required</span>
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Description</label>
+                <input id="description" type="text" maxlength="100" required formControlName="description" />
+
+                @if((form.controls['description'].touched && form.controls['description'].invalid) || 
+                    (form.controls['description'].invalid && formSubmitted)) {
+                    <div>
+                        <span class="error-message">Description is required</span>
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <span class="label">Logo</span>
+                <label for="image" class="image-label">
+                    <span>
+                        <i class="fa-solid fa-image"></i>
+                        <span>Select image</span>
+                    </span>
+                </label>
+                <span>{{ image?.name || 'No file selected' }}</span>
+                <input id="image" type="file" (change)="onSelectFile($event)" />
+            </div>
+        </form>
+
+        <mat-dialog-actions class="actions">
+            <button class="btn-primary close-btn" mat-dialog-close>Close</button>
+            <button class="btn-primary" (click)="submitForm()">Submit</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</div>

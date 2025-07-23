@@ -1,0 +1,52 @@
+* {
+    color: var(--dark-text);
+}
+
+.my-jobs {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 7px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.separator {
+    border: 1px solid #bebebe;
+    margin: 1rem 0;
+}
+
+.chips {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chips {
+    margin-top: 1rem;
+}
+
+.chips button {
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 7px;
+    font-size: .9rem;
+    transition: .2s ease-in-out;
+}
+
+.chip-btn {
+    border: 1px solid var(--medium-gray);
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+.chip--selected {
+    background-color: var(--accent-color);
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: var(--accent-color);
+    }
+}

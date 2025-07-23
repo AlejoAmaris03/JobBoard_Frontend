@@ -1,0 +1,31 @@
+<div class="public-layout general-layout">
+    <nav>
+        <h1 class="main-title" routerLink="">Job Board Platform</h1>
+
+        @if(!showIcons) {
+            <div class="buttons">
+                <button class="login-btn" routerLink="/login">Login</button>
+                <button class="singUp-btn" routerLink="/register">Sign up</button>
+            </div>
+        }
+        
+        @if(showIcons) {
+            <div class="buttons">
+                <i 
+                    class="login-btn fa-solid fa-right-to-bracket" 
+                    matTooltip="Login" 
+                    routerLink="login">
+                </i>
+                <i 
+                    class="singUp-btn fa-solid fa-user-plus" 
+                    matTooltip="Sign up" 
+                    routerLink="register">
+                </i>
+            </div>
+        }
+    </nav>
+
+    <div class="content">
+        <router-outlet />
+    </div>
+</div>

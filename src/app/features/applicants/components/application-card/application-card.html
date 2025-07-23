@@ -1,0 +1,18 @@
+<div class="job-card">
+    <div class="content" (click)="getApplicationInfo()">
+        <div class="job-card__header">
+            <h3>Job Application #{{ applicationNumber }}</h3>
+            <span class="status" [class]="'status-' + job.status.toLowerCase()">{{ job.status }}</span>
+        </div>
+
+        <div class="job-card__body">
+            <p><strong>Job:</strong> {{ job.jobName }}</p>
+            <p><strong>Applied at:</strong> {{ formatDate(job.appliedAt.toString()) }}</p>
+        </div>
+    </div>
+
+
+    <div class="job-card__footer">
+        <button class="btn-cancel" (click)="cancelApplication()">Cancel application</button>
+    </div>
+</div>

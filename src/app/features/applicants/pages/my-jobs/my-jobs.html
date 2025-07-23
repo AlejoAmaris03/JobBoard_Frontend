@@ -1,0 +1,25 @@
+<div class="my-jobs">
+    <header class="header">
+        <h2>My jobs</h2>
+
+        <div class="chips">
+            <button
+                class="chip-btn"
+                routerLinkActive="chip--selected"
+                routerLink="/applicant/my-jobs/applied">Applied
+            </button>
+
+            <button
+                class="chip-btn"
+                routerLinkActive="chip--selected"
+                routerLink="/applicant/my-jobs/in-progress">In Progress
+            </button>
+        </div>
+    </header>
+
+    <div class="separator"></div>
+    
+    <section class="user-jobs">
+        <router-outlet />
+    </section>
+</div>

@@ -1,0 +1,46 @@
+@if (jobSelected) {
+  <header class="job-title">
+    <div class="right-side">
+      <h2>{{ jobSelected.name }}</h2>
+
+      <span>
+        <i class="fas fa-building"></i> {{ company?.name }}
+      </span>
+
+      <span>
+        <i class="fas fa-location"></i> {{ jobSelected.location }}
+      </span>
+    </div>
+    
+    <img 
+      class="job-title-img"
+      [src]=getImage(company?.id) 
+      [alt]="company?.imageName ? company?.imageName : 'No-image'"
+    >
+  </header>
+
+  @if(!applied) { <button class="apply-btn" (click)="redirectToLogin(jobSelected)">Apply Now</button> }
+  @else { <button class="apply-btn applied-btn">Applied</button> }  
+
+  <div class="separator"></div>
+
+  <div class="company-info">
+    <p><strong><i class="fas fa-clock"></i></strong> {{ jobSelected.type }}</p>
+    <p><strong><i class="fas fa-sack-dollar"></i></strong> ${{ jobSelected.salary | number }}</p>
+    <p><strong>Posted:</strong> {{ parseDate(jobSelected.createdAt.toString()) }}</p>
+  </div>
+
+  <div class="description">
+    <p>{{ jobSelected.description }}</p>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="description">
+    <h2>About {{ company?.name }}</h2>
+    <p>{{ company?.description }}</p>
+  </div>
+}
+@else {
+  <p>No job selected</p>
+}

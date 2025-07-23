@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="sign-up-form form" autocomplete="off">
+    <div class="form-group">
+        <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="name" maxlength="30" required formControlName="name"/>
+
+            @if((form.controls['name'].touched && form.controls['name'].invalid) || (form.controls['name'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Name is required</span>
+                </div>
+            }
+        </div>
+        
+        <div class="field">
+            <label for="surname">Surname</label>
+            <input id="surname" type="surname" required formControlName="surname"/>
+
+            @if((form.controls['surname'].touched && form.controls['surname'].invalid) || (form.controls['surname'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Surname is required</span> 
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required formControlName="email"/>
+
+            @if((form.controls['email'].touched && form.controls['email'].invalid) || (form.controls['email'].invalid && formSubmitted)) {
+                <div>
+                    @if(form.controls['email'].hasError('required')) { <span class="error-message">Email is required</span> }
+                    @if(form.controls['email'].hasError('pattern')) { <span class="error-message">Email is not valid</span> }
+                </div>
+            }
+        </div>
+
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" maxlength="50" required formControlName="password"/>
+
+            @if((form.controls['password'].touched && form.controls['password'].invalid) || (form.controls['password'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Password is required</span>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="options">
+        <p class="text" routerLink="/login">Have an account?</p>
+    </div>
+
+    <button type="submit" class="btn-primary" id="register-btn">Register</button>
+
+    <app-oauth2-google />
+</form>

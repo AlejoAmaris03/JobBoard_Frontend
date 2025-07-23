@@ -1,0 +1,9 @@
+<div class="job-details-modal">
+    <header>
+        <i class="fas fa-xmark" matTooltip="Close" mat-dialog-close></i>
+    </header>
+
+    <mat-dialog-content class="content">
+        <app-job-details [jobSelected]=data [dialogRef]="dialogRef" (onDialogOpen)="handleApplying($event)" />
+    </mat-dialog-content>
+</div>  

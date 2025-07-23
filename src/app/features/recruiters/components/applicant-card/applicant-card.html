@@ -1,0 +1,20 @@
+<div class="applicant-card">
+    <header class="applicant-card__header">
+        <h3 class="applicant-name">{{ application.applicantName }}</h3>
+        <time class="applied-at">{{ formatDate(application.appliedAt.toString()) }}</time>
+    </header>
+
+    <label class="status-label" for="status" [id]="'status-' + application.id">
+        Status:
+    </label>
+
+    <select 
+        [id]="'status-' + application.id" 
+        class="status-select"
+        (change)="onChangeStatus.emit({ applicationId: application.id, newStatus:$event })"
+    >
+        <option value=1 [selected]="application.status === 'Completed'">Completed</option>
+        <option value=2 [selected]="application.status === 'Pending'">Pending</option>
+        <option value=3 [selected]="application.status === 'Canceled'">Canceled</option>
+    </select>
+</div>

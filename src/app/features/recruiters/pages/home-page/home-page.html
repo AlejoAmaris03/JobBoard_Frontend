@@ -1,0 +1,26 @@
+<div class="recruiter-dashboard">
+    <header class="dashboard-header">
+        <h1>Welcome, <span class="recruiter-name">{{ userLoggedIn.name }}</span> 👋</h1>
+        <p>Manage your jobs and discover top talent easily.</p>
+    </header>
+
+    <section class="dashboard-grid">
+        <div class="dashboard-card" routerLink="/recruiter/candidates">
+            <i class="fa-solid fa-users card-icon"></i>
+            <h3>View Candidates</h3>
+            <p>Browse and evaluate applicants.</p>
+        </div>
+
+        <div class="dashboard-card" routerLink="/recruiter/post-jobs">
+            <i class="fa-solid fa-briefcase card-icon"></i>
+            <h3>Post Job</h3>
+            <p>Create a new job listing.</p>
+        </div>
+
+        <div class="dashboard-card" routerLink="/recruiter/manage-jobs">
+            <i class="fa-solid fa-tasks card-icon"></i>
+            <h3>Manage Jobs</h3>
+            <p>Edit or remove job postings.</p>
+        </div>
+    </section>
+</div>

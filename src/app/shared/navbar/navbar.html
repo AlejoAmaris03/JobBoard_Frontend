@@ -1,0 +1,35 @@
+<nav>
+    <div class="main-title">
+        <mat-icon class="title-icon" (click)="sidebar?.toggle()">{{ sidebar?.opened ? 'close' : 'menu' }}</mat-icon>
+        <span>Welcome, {{ userLoggedIn.name }}</span>
+    </div>
+
+    <div class="buttons">
+        <button matButton class="user-options" [matMenuTriggerFor]="beforeMenu">
+            <mat-icon>person</mat-icon>
+            <span>{{ userLoggedIn.name }}</span>
+        </button>
+
+        <mat-menu #beforeMenu="matMenu" xPosition="before" class="menu">
+            <button  
+                class="user-option-btn"
+                matTooltip="Profile"
+                matTooltipPosition="left" 
+                (click)="goToProfile()"
+            >
+                <mat-icon class="user-option-icon profile-icon">account_circle</mat-icon>
+                <span>Profile</span>
+            </button>
+
+            <button  
+                class="user-option-btn" 
+                matTooltip="Logout"
+                matTooltipPosition="left" 
+                (click)="logout()"
+            >
+                <mat-icon class="user-option-icon logout-icon">logout</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</nav>

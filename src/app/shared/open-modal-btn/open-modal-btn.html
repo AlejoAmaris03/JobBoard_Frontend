@@ -1,0 +1,6 @@
+<div class="open-modal-btn">
+    <button [class]=modalBtn.style [matTooltip]=modalBtn.name (click)="onClick.emit()">
+        <i [class]=modalBtn.icon></i>
+        <span>{{ modalBtn.name }}</span>
+    </button>
+</div>

@@ -1,0 +1,70 @@
+* {
+    color: #000000;
+}
+
+.job-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.job-title .right-side {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+    }
+}
+
+.job-title-img {
+    width: 80px; 
+    height: 50px;
+    object-fit: contain;
+    max-inline-size: 100%;
+    block-size: auto;
+    border-radius: 5px;
+}
+
+.company-info p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.description {
+    margin-bottom: 1rem;
+}
+
+.description p {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.apply-btn {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.applied-btn {
+    background-color: var(--medium-gray);
+    cursor: not-allowed;
+}
+
+.apply-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.separator {
+    border: 1px solid #e2e2e2;
+    margin-bottom: 1rem;
+}

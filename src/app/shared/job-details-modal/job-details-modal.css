@@ -1,0 +1,16 @@
+* {
+    color: var(--dark-text);
+}
+
+.job-details-modal {
+    background-color: var(--light-gray);
+    padding: 20px;
+}
+
+header {
+    text-align: end;
+}
+
+header i {
+    cursor: pointer;
+}

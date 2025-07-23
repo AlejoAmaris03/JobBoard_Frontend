@@ -1,0 +1,41 @@
+<div class="table">
+    <table mat-table matSort [dataSource]="dataSource" [hidden]="dataSource.data.length === 0" class="mat-elevation-z8">
+        @for(column of columNamesRef; track $index) {
+            @if(column !== 'actions') {
+                <ng-container [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ columNames[$index] }} </th>
+                    <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+                </ng-container>
+            }
+            
+
+            @if(column === 'actions') {
+                <ng-container [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ columNames[$index] }} </th>
+                    <td mat-cell *matCellDef="let element">
+                        @for(button of actions; track $index) {
+                            <button
+                                class="action-button"
+                                [matTooltip]="button.name"
+                                (click)="onAction.emit({ actionId: button.id, object: element })"
+                            >
+                                <i [class]=button.icon></i>
+                            </button>
+                        }
+                    </td>
+                </ng-container>
+            }
+        }
+        
+        <tr mat-header-row *matHeaderRowDef="columNamesRef"></tr>
+        <tr mat-row *matRowDef="let row; columns: columNamesRef;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter</td>
+        </tr>
+    </table>
+
+    <mat-paginator [hidden]="dataSource.data.length === 0" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+    @if(dataSource.data.length === 0) {<span class="no-data">No data found</span> }
+</div>

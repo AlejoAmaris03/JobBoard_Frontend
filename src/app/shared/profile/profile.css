@@ -1,0 +1,38 @@
+* {
+    color: var(--dark-text);
+}
+
+.profile-update-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-update-container h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.profile-form input:focus,
+.profile-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.profile-form button {
+    color: white;
+}
+
+.profile-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.error-message {
+    text-align: start;
+    margin-top: 5px;
+    color: var(--error-color);
+}

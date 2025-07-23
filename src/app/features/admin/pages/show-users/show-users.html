@@ -1,0 +1,28 @@
+<div class="show-users">
+    <h2>
+        <div class="right-side">
+            <mat-icon 
+                class="title-icon"
+                matTooltip="Home"
+                routerLink="/admin"
+                >arrow_back</mat-icon>
+            
+            Manage users
+        </div>
+
+        <div class="left-side">
+            <app-open-modal-btn  [modalBtn]="modalBtn" (onClick)="handleModal(null)" />
+        </div>
+    </h2>
+
+    <app-search-bar placeholder="Search users" (onSearch)="handleSearch($event)"/>
+
+    <div class="table">
+        <app-table
+            [dataSource]="dataSource"
+            [columNamesRef]="columnNamesRef"  
+            [columNames]="columnNames"
+            [actions]="actions"
+            (onAction)="handleAction($event)" />
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.form-group {
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+.options {
+    justify-content: end;
+}
+
+@media screen and (max-width: 535px) {
+   .form-group {
+        flex-direction: column;
+    }
+}

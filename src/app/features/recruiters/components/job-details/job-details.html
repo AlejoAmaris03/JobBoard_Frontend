@@ -1,0 +1,26 @@
+<div class="job-details-container">
+
+    <h2 class="job-title">
+        <span>{{ data.name }}</span>
+        <i class="fas fa-xmark" matTooltip="Close" mat-dialog-close></i>
+    </h2>
+
+    <mat-dialog-content class="content">
+        <div class="meta-info">
+            <span><strong>Company:</strong> {{ data.companyName }}</span>
+            <span><strong>Recruiter:</strong> {{ data.recruiterName }}</span>
+            <span><strong>Posted on:</strong> {{ parseDate(data.createdAt.toString()) }}</span>
+        </div>
+
+        <div class="job-summary">
+            <div><strong>Location:</strong> {{ data.location }}</div>
+            <div><strong>Type:</strong> {{ data.type }}</div>
+            <div><strong>Salary:</strong> ${{ data.salary | number }}</div>
+        </div>
+
+        <div class="job-description">
+            <h3>Job Description</h3>
+            <p>{{ data.description }}</p>
+        </div>
+    </mat-dialog-content>
+</div>

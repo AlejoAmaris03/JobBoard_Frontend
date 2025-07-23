@@ -1,0 +1,98 @@
+<div class="job-post-container">
+    <button class="back-btn" routerLink="/recruiter">
+        ← Go Home
+    </button>
+
+    <h2>Post a New Job</h2>
+
+    <form [formGroup]="form" class="form" (ngSubmit)="submitForm()" autocomplete="off">
+        <div class="form-group">
+            <label for="title">Job Title</label>
+            <input type="text" id="name" name="name" required formControlName="name" />
+
+            @if((form.controls['name'].touched && form.controls['name'].invalid) || (form.controls['name'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Name is required</span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="company">Company</label>
+            <select id="company" name="company" required formControlName="company">
+                <option value="">Select company</option>
+
+                @for(company of companies; track company.id) {
+                    <option [ngValue]=company>{{ company.name }}</option>
+                }
+            </select>
+
+            @if((form.controls['company'].touched && form.controls['company'].invalid) || 
+                (form.controls['company'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Company is required</span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="type">Job Type</label>
+            <select id="type" name="type" required formControlName="type">
+                <option value="">Select type</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Remote">Remote</option>
+                <option value="Contract">Contract</option>
+            </select>
+
+            @if((form.controls['type'].touched && form.controls['type'].invalid) || 
+                (form.controls['type'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Type is required</span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required formControlName="location"/>
+
+            @if((form.controls['location'].touched && form.controls['location'].invalid) || 
+                (form.controls['location'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Location is required</span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="salary" step="0.01" min="100" placeholder="e.g. 50000" formControlName="salary" />
+
+            @if((form.controls['salary'].touched && form.controls['salary'].invalid) || (form.controls['salary'].invalid && formSubmitted)) {
+                <div>
+                    @if(form.controls['salary'].hasError('required')) { <span class="error-message">Salary is required</span> }
+                    @if(form.controls['salary'].hasError('min')) { <span class="error-message">Salary must be at least $100</span> }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="description">Job Description</label>
+            <textarea id="description" name="description" maxlength="500"
+                placeholder="Describe the responsibilities, requirements, and expectations..." formControlName="description">
+            </textarea>
+
+            @if((form.controls['description'].touched && form.controls['description'].invalid) || 
+                (form.controls['description'].invalid && formSubmitted)) {
+                <div>
+                    <span class="error-message">Description is required</span>
+                </div>
+            }
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
+    </form>
+</div>
