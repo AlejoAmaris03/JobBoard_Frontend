@@ -56,10 +56,10 @@ Here are some views from the project:
 - 🧑‍💼 Manage applications (recruiter)
 <img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/078f4b19-a87a-41d3-8eba-2618ea5eaa0f" />
 
-- 🧑‍💼 Manage applications (applcant)
+- 🧑‍💼 Manage applications (applicant)
 <img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/d6a00d46-aa36-4abe-aa69-95c3fadc1067" />
 
-- 🧑‍💼 Manage resume (applcant)
+- 🧑‍💼 Manage resume (applicant)
 <img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/103a2738-dffb-41c3-bd28-22f179fd5d4b" />
 
 ---
