@@ -39,7 +39,7 @@ export class Applicants implements OnChanges {
   } 
 
   private getApplicantsByJob() {
-    this.applicationService.getApplicantsBJobId(this.jobSelected.id).subscribe({
+    this.applicationService.getApplicantsByJobId(this.jobSelected.id).subscribe({
       next: (res) => {
         this.applicants = res.applications;
         this.cdr.detectChanges();

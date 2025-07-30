@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import  Candidates  from './candidates';
+import { CvAttachedModal } from './cv-attached-modal';
 
-describe('Candidates', () => {
-  let component: Candidates;
-  let fixture: ComponentFixture<Candidates>;
+describe('CvAttachedModal', () => {
+  let component: CvAttachedModal;
+  let fixture: ComponentFixture<CvAttachedModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Candidates]
+      imports: [CvAttachedModal]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Candidates);
+    fixture = TestBed.createComponent(CvAttachedModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

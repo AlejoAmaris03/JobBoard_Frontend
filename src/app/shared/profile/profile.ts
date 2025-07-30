@@ -1,12 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService, SweetAlertService, ToastrNotificationService, UserService } from '../../core/services';
-
 @Component({
   selector: 'app-profile',
   imports: [
     ReactiveFormsModule
-  ],
+],
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })
@@ -51,10 +50,10 @@ export default class Profile implements OnInit {
         next: (res) => {
           this.authService.setToken(res.tokenUpdated);
           this.sweetAlertService.showMessageAndReloadPage(
-            'Great!',
-            'Information updated successfully',
+            'Information updated successfully!',
+            'Reload the page to apply your changes',
             "success",
-            "OK"
+            "Reload"
           );
         },
         error: (err) => {

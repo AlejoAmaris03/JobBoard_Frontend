@@ -1,0 +1,40 @@
+* {
+    color: var(--dark-text);
+}
+
+.profile-description-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--medium-gray);
+
+    i {
+        position: absolute;
+        cursor: pointer;
+        font-size: 1.2rem;
+        right: 1rem;
+    }
+}
+
+.profile-description-modal {
+    background-color: var(--light-gray);
+}
+
+.btn-primary {
+    color: var(--light-gray);
+    margin: 0;
+}
+
+.btn-disabled {
+    background-color: var(--medium-gray);
+    color: var(--light-gray);
+    cursor: not-allowed;
+}
+
+.form textarea {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 200px;
+}

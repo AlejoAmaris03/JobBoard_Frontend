@@ -15,18 +15,18 @@
         </header>
 
         <div class="job-list">
-        @for(job of jobs; track job.id) {
-            <div class="job-card" (click)="viewDetails(job)">
-                <div class="job-header">
-                    <h4>{{ job.name }}</h4>
-                    <span class="job-type">{{ job.type }}</span>
+            @for(job of jobs; track job.id) {
+                <div class="job-card" (click)="viewDetails(job)">
+                    <div class="job-header">
+                        <h4>{{ job.name }}</h4>
+                        <span class="job-type">{{ job.type }}</span>
+                    </div>
+                    <p class="company">{{ job.companyName }}</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
+                    <p class="salary"><strong>Salary:</strong> ${{ job.salary }}</p>
+                    <p class="posted-date">Posted on: {{ formatDate(job.createdAt.toString()) }}</p>
                 </div>
-                <p class="company">{{ job.companyName }}</p>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</p>
-                <p class="salary"><strong>Salary:</strong> ${{ job.salary }}</p>
-                <p class="posted-date">Posted on: {{ formatDate(job.createdAt.toString()) }}</p>
-            </div>
-        }
+            }
         </div>
 
         @if(jobs.length === 0) {

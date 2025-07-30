@@ -21,6 +21,18 @@
                 <span>Profile</span>
             </button>
 
+            @if(userLoggedIn.role === 'ROLE_APPLICANT') {
+                <button  
+                    class="user-option-btn"
+                    matTooltip="CV"
+                    matTooltipPosition="left"
+                    routerLink="/applicant/cv"
+                >
+                    <mat-icon class="user-option-icon profile-icon">insert_drive_file</mat-icon>
+                    <span>CV</span>
+                </button>
+            }
+            
             <button  
                 class="user-option-btn" 
                 matTooltip="Logout"

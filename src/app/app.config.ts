@@ -6,9 +6,17 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { tokenInterceptor } from './core/interceptors';
+import { IMAGE_CONFIG } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        disableImageSizeWarning: true, 
+        disableImageLazyLoadWarning: true
+      }
+    },
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes), 

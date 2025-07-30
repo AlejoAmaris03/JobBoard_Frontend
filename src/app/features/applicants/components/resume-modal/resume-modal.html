@@ -1,0 +1,105 @@
+<div class="resume-modal">
+    <header class="resume-modal-header">
+        <h3>Resume info.</h3>
+        <i class="fas fa-xmark" matTooltip="Close" mat-dialog-close></i>
+    </header>
+
+    <mat-dialog-content>
+        <form [formGroup]="form" id="resume-form" class="form" autocomplete="off">
+            <p class="warning-message">
+                <i class="fas fa-ban"></i>
+                <span>
+                    To modify these fields go to 
+                    <a href="/applicant/profile" class="profile-link">profile</a>
+                </span>
+            </p>
+
+            <div class="field">
+                <div class="form-group">
+                    <label for="name" class="label-disabled">
+                        <span>Name</span>
+                        <i class="fas fa-ban"></i>
+                    </label>
+                    <input class="input-disabled" type="text" id="name" name="name" [value]="userLoggedIn.name" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="surname" class="label-disabled">
+                        <span>Surname</span>
+                        <i class="fas fa-ban"></i>
+                    </label>
+                    <input class="input-disabled" type="text" id="surname" name="surname" [value]="userLoggedIn.surname" disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="label-disabled" for="email">
+                    <span>Email</span>
+                    <i class="fas fa-ban"></i>
+                </label>
+                <input class="input-disabled" type="email" id="email" name="email" [value]="userLoggedIn.email" disabled>
+            </div>
+
+            <!-- Editable fields -->
+            <div class="form-group">
+                <label for="phoneNumber">Phone number</label>
+                <input 
+                    type="number" 
+                    min="0" 
+                    id="phoneNumber" 
+                    name="email" 
+                    placeholder="Your phone number"
+                    (focus)="activeBtnSubmit()"
+                    (input)="validationPhoneNumber($event)" 
+                    formControlName="phoneNumber">
+                
+                @if((form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched) || 
+                    (formSubmitted && form.get('phoneNumber')?.invalid)) {
+                    @if(form.get('phoneNumber')?.hasError('required')){ <div class="error-message">Phone number is required</div> }
+                    @if(form.get('phoneNumber')?.hasError('min')){ <div class="error-message">Phone number must have at least 7 digits</div> }
+                    @if(form.get('phoneNumber')?.hasError('max')){ <div class="error-message">Phone number must have 15 digits max.</div> }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input 
+                    type="date" 
+                    id="dateOfBirth" 
+                    name="dateOfBirth" 
+                    placeholder="Your date of birth"
+                    (focus)="activeBtnSubmit()"
+                    (change)="validationDateOfBirth($event)"
+                    formControlName="dateOfBirth">
+
+                @if((form.get('dateOfBirth')?.invalid && form.get('dateOfBirth')?.touched) || 
+                    (formSubmitted && form.get('dateOfBirth')?.invalid)) {
+                    @if(form.get('dateOfBirth')?.hasError('dateOfBirthNotValid')){ <div class="error-message">You must be at least 18 years</div> }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input 
+                    type="text"
+                    maxlength="30"
+                    id="city" 
+                    name="city" 
+                    placeholder="Your city"
+                    (focus)="activeBtnSubmit()"
+                    formControlName="city">
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button 
+            class="btn-primary" 
+            type="submit" 
+            form="resume-form"
+            [class.btn-disabled]="btnDiasbled"
+            [disabled]="btnDiasbled"
+            (click)="saveResumeInfo()"
+            >Save</button>
+    </mat-dialog-actions>
+</div>

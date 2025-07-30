@@ -89,6 +89,11 @@ export const routes: Routes = [
                 canActivate: [authenticationGuard, recruiterGuard]
             },
             {
+                path: 'candidates/cv/:applicantId',
+                loadComponent: () => import('./features/recruiters/pages/applicant-resume/applicant-resume'),
+                canActivate: [authenticationGuard, recruiterGuard]
+            },
+            {
                 path: 'post-jobs',
                 loadComponent: () => import('./features/recruiters/pages/create-jobs/create-jobs'),
                 canActivate: [authenticationGuard, recruiterGuard]
@@ -124,6 +129,11 @@ export const routes: Routes = [
             {
                 path: 'profile',
                 loadComponent: () => import('./shared/profile/profile'),
+                canActivate: [authenticationGuard, applicantGuard]
+            },
+            {
+                path: 'cv',
+                loadComponent: () => import('./features/applicants/pages/applicant-profile/applicant-profile'),
                 canActivate: [authenticationGuard, applicantGuard]
             },
             {

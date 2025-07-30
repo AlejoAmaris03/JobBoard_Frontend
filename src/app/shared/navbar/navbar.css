@@ -51,6 +51,8 @@ button {
 }
 
 .user-option-btn {
+    display: flex;
+    justify-content: start;
     width: 100%;
     
     &:hover {

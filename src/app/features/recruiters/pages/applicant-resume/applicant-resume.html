@@ -1,0 +1,85 @@
+<div class="profile">
+    <header class="profile-header">
+        <div class="profile-image">
+            @if(!profileImage) { <img src="assets/images/no-logo.jpg" alt=""> }
+            @else {
+                <img 
+                    [src]="'data:' + profileImage.profileImageType + ';base64,' + profileImage.profileImageData" 
+                    [alt]=profileImage.profileImageName /> 
+            }
+        </div>
+
+        <div class="info">
+            <div class="main-info">
+                <h3>{{ (!applicant || !applicant.name) ? '---' : applicant.name }} 
+                    {{ (!applicant || !applicant.surname) ? '---' : applicant.surname }}
+                </h3>
+                <p>{{ (!resume || !resume.city) ? '---' : resume.city }}</p>
+            </div>
+
+            <div class="additional-info">
+                <span class="element">
+                    <i class="icon fas fa-envelope"></i>
+                    <p>{{ (!applicant || !applicant.email) ? '---' : applicant.email }}</p>
+                </span>
+                <span class="element">
+                    <i class="icon fas fa-phone-volume"></i>
+                    <p>{{ (!resume || !resume.phoneNumber) ? '---' : resume.phoneNumber }}</p>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-description">
+        @if(!resume || (!resume.title && !resume.description)) { <p>No profile description</p> }
+        @else {
+            <h3 class="title">{{ (!resume || !resume.title) ? '---' : resume.title }}</h3>
+            <p>{{ (!resume || !resume.description) ? '---' : resume.description }}</p>
+        }
+    </section>
+
+    <section class="experience-container">
+        @if(experience.length === 0) { <p>No experience</p> }
+        @else {
+            <h3 class="title">
+                <span>Experience</span>
+            </h3>
+            <ul>
+                @for(xp of experience; track xp.id) {
+                    <li>
+                        <div class="experience">
+                            <div class="info">
+                                <strong>{{ xp.jobTitle }}</strong>
+                                <p class="experience-info">{{ xp.companyName }}</p>
+                                <p class="experience-info">
+                                    {{ xp.startDate ? formatDate(xp.startDate) : '' }} -
+                                    @if(xp.endDate) { {{ formatDate(xp.endDate) }} }
+                                    @if(xp.startDate && !xp.endDate) { Present }
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+        
+    </section>
+
+    <section class="cv-file">
+        @if(!cv) { <p>No CV</p> }
+        @else {
+            <h3 class="title">
+                <span>CV attached</span>
+            </h3>
+            <span>
+                <strong>CV: </strong> 
+                <a 
+                    [href]="'data:application/pdf;base64,' + cv.cvFileData"
+                    [download]="cv.cvFileName"
+                    matTooltip="Download"
+                    matTooltipPosition="right"
+                >{{ cv.cvFileName }}</a>
+            </span>
+        }
+    </section>
+</div>

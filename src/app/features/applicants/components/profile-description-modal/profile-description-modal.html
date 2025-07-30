@@ -1,0 +1,45 @@
+<div class="profile-description-modal">
+    <header class="profile-description-modal-header">
+        <h3>Profile description</h3>
+        <i class="fas fa-xmark" matTooltip="Close" mat-dialog-close></i>
+    </header>
+
+    <mat-dialog-content>
+        <form [formGroup]="form" id="profile-description-form" class="form" autocomplete="off">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input 
+                    type="text"
+                    maxlength="100" 
+                    id="title" 
+                    name="title" 
+                    placeholder="Your description title"
+                    (focus)="activeBtnSubmit()"
+                    formControlName="title">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea 
+                    id="description" 
+                    name="description"
+                    maxlength="500" 
+                    placeholder="Your description"
+                    (focus)="activeBtnSubmit()"
+                    formControlName="description">
+                </textarea>
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button 
+            class="btn-primary" 
+            type="submit" 
+            form="profile-description-form"
+            [class.btn-disabled]="btnDiasbled"
+            [disabled]="btnDiasbled"
+            (click)="saveProfileDescriptionInfo()"
+            >Save</button>
+    </mat-dialog-actions>
+</div>

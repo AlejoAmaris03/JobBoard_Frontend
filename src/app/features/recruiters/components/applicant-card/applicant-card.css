@@ -20,14 +20,26 @@
 .applicant-card__header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 0.75rem;
 }
 
 .applicant-name {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     font-size: 1.2rem;
     color: var(--primary-color);
+}
+
+.applicant-name a {
+    font-size: .8rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .applied-at {

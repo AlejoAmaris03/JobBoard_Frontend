@@ -1,0 +1,89 @@
+* {
+    color: var(--dark-text);
+}
+
+.resume-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--medium-gray);
+
+    i {
+        position: absolute;
+        cursor: pointer;
+        font-size: 1.2rem;
+        right: 1rem;
+    }
+}
+
+.resume-modal {
+    background-color: var(--light-gray);
+}
+
+.form .warning-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.profile-link {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form .field {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.form .form-group {
+    width: 100%;
+}
+
+.input-disabled {
+    cursor: not-allowed;
+}
+
+.label-disabled {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+
+    i {
+        font-size: .6rem;
+    }
+
+    span {
+        color: var(--medium-gray);
+    }
+}
+
+.error-message {
+    color: var(--error-color);
+    margin: 0;
+    text-align: start;
+}
+
+.btn-primary {
+    color: var(--light-gray);
+    margin: 0;
+}
+
+.btn-disabled {
+    background-color: var(--medium-gray);
+    color: var(--light-gray);
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+    .form .field {
+        flex-wrap: wrap;
+    }
+}

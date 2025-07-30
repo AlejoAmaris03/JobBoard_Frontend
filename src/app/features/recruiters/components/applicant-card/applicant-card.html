@@ -1,6 +1,9 @@
 <div class="applicant-card">
     <header class="applicant-card__header">
-        <h3 class="applicant-name">{{ application.applicantName }}</h3>
+        <h3 class="applicant-name">
+            <span>{{ application.applicant.name }} {{ application.applicant.surname }}</span>
+            <a [href]="'/recruiter/candidates/cv/' + application.applicant.id">View resume</a>
+        </h3>
         <time class="applied-at">{{ formatDate(application.appliedAt.toString()) }}</time>
     </header>
 

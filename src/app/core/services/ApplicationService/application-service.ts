@@ -24,7 +24,7 @@ export class ApplicationService {
     return this.http.get<any>(`${this.applicationUrl}/recruiter/${recruiterId}/applications`);
   }
 
-  public getApplicantsBJobId(jobId: number): Observable<any> {
+  public getApplicantsByJobId(jobId: number): Observable<any> {
     return this.http.get<any>(`${this.applicationUrl}/byJobId/${jobId}`);
   }
 

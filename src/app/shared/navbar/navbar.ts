@@ -5,14 +5,15 @@ import { AuthService, SweetAlertService } from '../../core/services';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UserAuth } from '../../core/models';
 import { MatMenuModule } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   imports: [
     MatIconModule,
     MatTooltip,
-    MatMenuModule
+    MatMenuModule,
+    RouterLink
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'

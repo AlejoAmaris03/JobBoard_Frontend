@@ -1,0 +1,60 @@
+* {
+    color: var(--dark-text);
+}
+
+.experience-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--medium-gray);
+
+    i {
+        position: absolute;
+        cursor: pointer;
+        font-size: 1.2rem;
+        right: 1rem;
+    }
+}
+
+.experience-modal {
+    background-color: var(--light-gray);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin: 0;
+    text-align: start;
+}
+
+.actions {
+    margin-top: 1rem;
+    border-top: 1px solid var(--medium-gray);
+} 
+
+.btn-primary {
+    color: var(--light-gray);
+    margin: 0;
+}
+
+.btn-delete {
+    background-color: var(--medium-gray);
+}
+
+.more-btn {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    button {
+        width: fit-content;
+    }
+}
+
+.btn-disabled {
+    background-color: var(--medium-gray);
+    color: var(--light-gray);
+    cursor: not-allowed;
+}

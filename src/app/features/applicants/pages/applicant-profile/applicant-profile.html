@@ -1,0 +1,99 @@
+<div class="profile">
+    <header class="profile-header">
+        <div class="profile-image">
+            <label for="image">
+                @if(!profileImage) { <img src="assets/images/no-logo.jpg" alt=""> }
+                @else {
+                    <img 
+                        [src]="'data:' + profileImage.profileImageType + ';base64,' + profileImage.profileImageData" 
+                        [alt]=profileImage.profileImageName /> 
+                }
+                
+                <mat-icon class="icon">add</mat-icon>
+            </label>
+            <input type="file" name="image" id="image" (change)="changeProfileImage($event)">
+        </div>
+
+        <div class="info">
+            <div class="main-info">
+                <h3>{{ userLoggedIn.name }} {{ userLoggedIn.surname }}</h3>
+                <p>{{ (!resume || !resume.city) ? '---' : resume.city }}</p>
+            </div>
+
+            <div class="additional-info">
+                <span class="element">
+                    <i class="icon fas fa-envelope"></i>
+                    <p>{{ userLoggedIn.email }}</p>
+                </span>
+                <span class="element">
+                    <i class="icon fas fa-phone-volume"></i>
+                    <p>{{ (!resume || !resume.phoneNumber) ? '---' : resume.phoneNumber }}</p>
+                </span>
+            </div>
+        </div>
+
+        <i class="icon edit-icon fas fa-pencil" (click)="openResumeModal()"></i>
+    </header>
+
+    <section class="profile-description">
+        @if(!resume || (!resume.title && !resume.description)) { 
+            <p class="new-item" (click)="openProfileDescriptionModal()">Add profile description</p> 
+        }
+        @else {
+            <h3 class="title">
+                <span>{{ (!resume || !resume.title) ? '---' : resume.title }}</span>
+                <i class="icon edit-icon fas fa-pencil" (click)="openProfileDescriptionModal()" ></i>
+            </h3>
+            <p>{{ (!resume || !resume.description) ? '---' : resume.description }}</p>
+        }
+    </section>
+
+    <section class="experience-container">
+        @if(experience.length === 0) { <p class="new-item" (click)="openExperienceModal(null)">Add experience</p> }
+        @else {
+            <h3 class="title">
+                <span>Experience</span>
+            </h3>
+            <ul>
+                @for(xp of experience; track xp.id) {
+                    <li>
+                        <div class="experience">
+                            <div class="info">
+                                <strong>{{ xp.jobTitle }}</strong>
+                                <p class="experience-info">{{ xp.companyName }}</p>
+                                <p class="experience-info">
+                                    {{ xp.startDate ? formatDate(xp.startDate) : '' }} -
+                                    @if(xp.endDate) { {{ formatDate(xp.endDate) }} }
+                                    @if(xp.startDate && !xp.endDate) { Present }
+                                </p>
+                            </div>
+
+                            <i class="icon edit-icon fas fa-pencil" (click)="openExperienceModal(xp)"></i>
+                        </div>
+                    </li>
+                }
+
+                <li>
+                    <div class="experience">
+                        <p class="new-item" (click)="openExperienceModal(null)">Add new experience</p>
+                    </div>
+                </li>
+            </ul>
+        }
+        
+    </section>
+
+    <section class="cv-file">
+        @if(!cv) { 
+            <label class="new-item" for="cv-file">Add CV (pdf)</label>
+            <input type="file" id="cv-file" name="cv-file" (change)="changeCvFile($event)">
+        }
+        @else {
+            <h3 class="title">
+                <span>CV attached</span>
+                <i class="icon edit-icon fas fa-pencil" (click)="openCvModal()"></i>
+            </h3>
+            <span><strong>CV: </strong> <span>{{ cv.cvFileName }}</span></span>
+        }
+    </section>
+</div>

@@ -1,0 +1,36 @@
+<div class="cv-attached-modal">
+    <div class="cv-attached-modal-header">
+        <h3>CV attached</h3>
+        <i class="fas fa-xmark" matTooltip="Close" mat-dialog-close></i>
+    </div>
+
+    <mat-dialog-content>
+        <div class="content">
+            <div class="upload">
+                <label for="cvFile">
+                    <i class="upload-icon fas fa-pencil"></i>
+                    <span>Uptade your CV</span>
+                </label>
+
+                <input type="file" name="cvFile" id="cvFile" (change)="changeCvFile($event)">
+            </div>
+
+            <div class="cv-info">
+                <a 
+                    [href]="'data:application/pdf;base64,' +  data.cvFileData" 
+                    target="_blank" 
+                    [download]="data.cvFileName"
+                    matTooltip="Download"
+                    matTooltipPosition="above"
+                >{{ data.cvFileName }}</a>
+
+                <i 
+                    class="delete-icon fas fa-trash" 
+                    matTooltip="Delete" 
+                    matTooltipPosition="left"
+                    (click)="deleteCvFile()"
+                ></i>
+            </div>
+        </div>
+    </mat-dialog-content>
+</div>
